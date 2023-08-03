@@ -69,7 +69,7 @@ define Package/openthread-br
 	TITLE:=OpenThread Border Router
 	DEPENDS:=+libstdcpp +libjson-c +libubus \
 			+libblobmsg-json +libavahi-client +avahi-daemon \
-			+iptables-mod-extra +ipset +jsoncpp
+			+iptables-mod-extra +ipset +jsoncpp +boost +boost-filesystem
 endef
 
 define Package/openthread-br/description
