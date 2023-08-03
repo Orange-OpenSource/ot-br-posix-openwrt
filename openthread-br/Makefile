@@ -38,6 +38,8 @@ PKG_SOURCE_VERSION:=de7cd7b20
 PKG_SOURCE_URL:=https://github.com/openthread/ot-br-posix.git
 PKG_HASH:=1bf274db28abe10fa36085b494e19536a8f63f814ee1e96f2160152bb012c411
 
+PKG_BUILD_DEPENDS += node/host
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
