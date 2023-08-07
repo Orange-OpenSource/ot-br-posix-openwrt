@@ -64,6 +64,7 @@ CMAKE_OPTIONS+= \
 	-DOT_BACKBONE_ROUTER_MULTICAST_ROUTING=ON
 
 TARGET_CFLAGS += -DOPENTHREAD_POSIX_CONFIG_DAEMON_SOCKET_BASENAME=\\\"/var/run/openthread-%s\\\"
+TARGET_CFLAGS += -lboost_filesystem
 
 define Package/openthread-br
 	SECTION:=base
