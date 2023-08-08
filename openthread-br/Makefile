@@ -32,13 +32,13 @@ PKG_NAME:=openthread-br
 PKG_LICENSE:=BSD-3-Clause
 PKG_LICENSE_FILES:=LICENSE
 PKG_RELEASE:=1
-PKG_VERSION:=1.0
+PKG_VERSION:=1.1
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=de7cd7b20
+PKG_SOURCE_VERSION:=bb565ca016
 PKG_SOURCE_URL:=https://github.com/openthread/ot-br-posix.git
-PKG_HASH:=1bf274db28abe10fa36085b494e19536a8f63f814ee1e96f2160152bb012c411
+PKG_HASH:=2031308efda0be8077ca1033ae074e1466559b55f513b4245e2f4b15df936298
 
-PKG_BUILD_DEPENDS += node/host
+PKG_BUILD_DEPENDS:=node/host protobuf/host
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
@@ -61,7 +61,8 @@ CMAKE_OPTIONS+= \
 	-DOTBR_DBUS=ON \
 	-DOT_THREAD_VERSION=1.3 \
 	-DOTBR_BACKBONE_ROUTER=ON \
-	-DOT_BACKBONE_ROUTER_MULTICAST_ROUTING=ON
+	-DOT_BACKBONE_ROUTER_MULTICAST_ROUTING=ON \
+	-DPROTOBUF_PROTOC_EXECUTABLE=$(STAGING_DIR_HOSTPKG)/bin/protoc
 
 TARGET_CFLAGS += -DOPENTHREAD_POSIX_CONFIG_DAEMON_SOCKET_BASENAME=\\\"/var/run/openthread-%s\\\"
 TARGET_CFLAGS += -lboost_filesystem
@@ -72,7 +73,8 @@ define Package/openthread-br
 	TITLE:=OpenThread Border Router
 	DEPENDS:=+libstdcpp +libjson-c +libubus \
 			+libblobmsg-json +libavahi-client +avahi-daemon \
-			+iptables-mod-extra +ipset +jsoncpp +boost +boost-filesystem
+			+iptables-mod-extra +ipset +jsoncpp +boost +boost-filesystem \
+			+protobuf-lite
 endef
 
 define Package/openthread-br/description
