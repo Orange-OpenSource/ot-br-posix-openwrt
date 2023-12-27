@@ -24,7 +24,7 @@ make
 ## Package and Install otbr package
 ```
 Add ot-br-posix's feeds
-echo "src-git openthread https://github.com/maximilien-baumann/ot-br-posix-openwrt.git;main" >> feeds.conf
+echo "src-git openthread https://github.com/Orange-OpenSource/ot-br-posix-openwrt.git;main" >> feeds.conf
 ./scripts/feeds update openthread
 ./scripts/feeds install -a -p openthread
 # in "Network" column, select "openthread" option
