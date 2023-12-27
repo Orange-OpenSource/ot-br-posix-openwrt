@@ -32,11 +32,11 @@ PKG_NAME:=openthread-br
 PKG_LICENSE:=BSD-3-Clause
 PKG_LICENSE_FILES:=LICENSE
 PKG_RELEASE:=1
-PKG_VERSION:=1.1
+PKG_VERSION:=1.2
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=bb565ca016
+PKG_SOURCE_VERSION:=98db630
 PKG_SOURCE_URL:=https://github.com/openthread/ot-br-posix.git
-PKG_HASH:=2031308efda0be8077ca1033ae074e1466559b55f513b4245e2f4b15df936298
+PKG_HASH:=
 
 PKG_BUILD_DEPENDS:=node/host protobuf/host
 
@@ -62,6 +62,17 @@ CMAKE_OPTIONS+= \
 	-DOT_THREAD_VERSION=1.3 \
 	-DOTBR_BACKBONE_ROUTER=ON \
 	-DOT_BACKBONE_ROUTER_MULTICAST_ROUTING=ON \
+	-DOT_DIAGNOSTIC=ON \
+	-DOTBR_DUA_ROUTING=ON \
+	-DOT_DUA=ON \
+	-DOT_MLR=ON \
+	-DOT_SRP_CLIENT=ON \
+	-DOT_DNS_CLIENT=ON \
+	-DOTBR_TREL=OFF \
+	-DOTBR_NAT64=OFF \
+	-DOTBR_DHCP6_PD=ON \
+	-DOTBR_REFERENCE_DEVICE=1 \
+	-DOTBR_NETWORK_MANAGER=0 \
 	-DPROTOBUF_PROTOC_EXECUTABLE=$(STAGING_DIR_HOSTPKG)/bin/protoc
 
 TARGET_CFLAGS += -DOPENTHREAD_POSIX_CONFIG_DAEMON_SOCKET_BASENAME=\\\"/var/run/openthread-%s\\\"
@@ -74,7 +85,7 @@ define Package/openthread-br
 	DEPENDS:=+libstdcpp +libjson-c +libubus \
 			+libblobmsg-json +libavahi-client +avahi-daemon \
 			+iptables-mod-extra +ipset +jsoncpp +boost +boost-filesystem \
-			+protobuf-lite
+			+protobuf-lite +libnetfilter-queue
 endef
 
 define Package/openthread-br/description
