@@ -1,0 +1,30 @@
+From 9c37826bec0a0e5a52c8338ede4f60640f7cb64a Mon Sep 17 00:00:00 2001
+From: Maximilien Baumann <maximilien.baumann@orange.com>
+Date: Thu, 3 Aug 2023 17:35:49 +0200
+Subject: [PATCH] Avoid redefine OPENTHREAD_POSIX_CONFIG_DAEMON_SOCKET_BASENAME
+
+---
+ src/web/web-service/ot_client.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/web/web-service/ot_client.cpp b/src/web/web-service/ot_client.cpp
+index 3020bc040a..ca16763aeb 100644
+--- a/src/web/web-service/ot_client.cpp
++++ b/src/web/web-service/ot_client.cpp
+@@ -49,11 +49,13 @@
+ 
+ // Temporary solution before posix platform header files are cleaned up.
+ #ifndef OPENTHREAD_POSIX_DAEMON_SOCKET_NAME
++#ifndef OPENTHREAD_POSIX_CONFIG_DAEMON_SOCKET_BASENAME
+ #ifdef __linux__
+ #define OPENTHREAD_POSIX_CONFIG_DAEMON_SOCKET_BASENAME "/run/openthread-%s"
+ #else
+ #define OPENTHREAD_POSIX_CONFIG_DAEMON_SOCKET_BASENAME "/tmp/openthread-%s"
+ #endif
++#endif
+ #define OPENTHREAD_POSIX_DAEMON_SOCKET_NAME OPENTHREAD_POSIX_CONFIG_DAEMON_SOCKET_BASENAME ".sock"
+ #endif
+ 
+-- 
+2.40.1.521.gf1e218fcd8
+
