@@ -109,14 +109,14 @@ define Package/openthread-br/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_CONF) $(PKG_INSTALL_DIR)/etc/config/* $(1)/etc/config
 
+	$(INSTALL_DIR) $(1)/etc/dbus-1/system.d
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/etc/dbus-1/system.d/* $(1)/etc/dbus-1/system.d
+
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller/admin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/openwrt/controller/thread.lua $(1)/usr/lib/lua/luci/controller/admin
 
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view
 	$(CP) $(PKG_BUILD_DIR)/src/openwrt/view/admin_thread $(1)/usr/lib/lua/luci/view
-
-	$(INSTALL_DIR) $(1)/etc/dbus-1/system.d/
-	$(INSTALL_CONF) ./files/system.conf $(1)/etc/dbus-1/system.d/system.conf
 
 endef
 
