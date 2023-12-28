@@ -1,0 +1,3 @@
+config PRPL_OTBR_VENDOR_NAME
+    string "Vendor name for thread discovery"
+    default "OpenThread"

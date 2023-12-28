@@ -73,12 +73,13 @@ CMAKE_OPTIONS+= \
 	-DOTBR_DHCP6_PD=ON \
 	-DOTBR_REFERENCE_DEVICE=1 \
 	-DOTBR_NETWORK_MANAGER=0 \
+	-DOTBR_VENDOR_NAME=$(CONFIG_PRPL_OTBR_VENDOR_NAME) \
 	-DPROTOBUF_PROTOC_EXECUTABLE=$(STAGING_DIR_HOSTPKG)/bin/protoc
 
 TARGET_CFLAGS += -DOPENTHREAD_POSIX_CONFIG_DAEMON_SOCKET_BASENAME=\\\"/var/run/openthread-%s\\\"
 TARGET_CFLAGS += -lboost_filesystem
 
-define Package/openthread-br
+define Package/$(PKG_NAME)
 	SECTION:=base
 	CATEGORY:=Network
 	TITLE:=OpenThread Border Router
@@ -88,9 +89,14 @@ define Package/openthread-br
 			+protobuf-lite +libnetfilter-queue
 endef
 
-define Package/openthread-br/description
+define Package/$(PKG_NAME)/description
     A Thread border router for POSIX-based platforms.
 endef
+
+define Package/$(PKG_NAME)/config
+	source "$(SOURCE)/Config.in"
+endef
+
 
 define Package/openthread-br/install
 	$(INSTALL_DIR) $(1)/usr/sbin
