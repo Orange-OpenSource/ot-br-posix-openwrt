@@ -115,9 +115,6 @@ define Package/openthread-br/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view
 	$(CP) $(PKG_BUILD_DIR)/src/openwrt/view/admin_thread $(1)/usr/lib/lua/luci/view
 
-	$(INSTALL_DIR) $(1)/www/luci-static/resources
-	$(CP) $(PKG_BUILD_DIR)/src/openwrt/handle_error.js $(1)/www/luci-static/resources
-
 	$(INSTALL_DIR) $(1)/etc/dbus-1/system.d/
 	$(INSTALL_CONF) ./files/system.conf $(1)/etc/dbus-1/system.d/system.conf
 
