@@ -1,0 +1,25 @@
+From 2a4bf4cb49da01cdca57a43e4586260fb9e68a4a Mon Sep 17 00:00:00 2001
+From: Maximilien Baumann <maximilien.baumann@orange.com>
+Date: Tue, 2 Jan 2024 13:55:01 +0100
+Subject: [PATCH] Add infra_if_name as variable
+
+This configuration is already define in makefile
+But the file doesn't take account of this
+---
+ src/openwrt/otbr-agent.uci-config.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/openwrt/otbr-agent.uci-config.in b/src/openwrt/otbr-agent.uci-config.in
+index 855d708852..f2baf90a4b 100644
+--- a/src/openwrt/otbr-agent.uci-config.in
++++ b/src/openwrt/otbr-agent.uci-config.in
+@@ -1,5 +1,5 @@
+ config otbr-agent 'service'
+ 	option thread_if_name "wpan0"
+-	option infra_if_name "eth0"
++	option infra_if_name "@OTBR_INFRA_IF_NAME@"
+ 	option uart_device "/dev/ttyACM0"
+ 	option uart_baudrate 115200
+-- 
+2.34.1
+
