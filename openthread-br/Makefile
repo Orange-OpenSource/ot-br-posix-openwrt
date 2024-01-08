@@ -22,7 +22,7 @@ PKG_SOURCE_VERSION:=98db630
 PKG_SOURCE_URL:=https://github.com/openthread/ot-br-posix.git
 PKG_MIRROR_HASH:=72ad1d42cc01f9c3384d5fd8a66312fb23f1df40f2fd3da232c55e1f0c7be41b
 
-PKG_BUILD_DEPENDS:=node/host protobuf/host
+PKG_BUILD_DEPENDS:=protobuf/host
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
