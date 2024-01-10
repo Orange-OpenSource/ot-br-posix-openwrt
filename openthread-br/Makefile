@@ -1,33 +1,15 @@
-# BSD 3-Clause License
 #
-# Copyright (c) 2023, Maximilien Baumann
+# Software Name: ot-br-posix-openwrt
+# SPDX-FileCopyrightText: Copyright (c) Orange SA
+# SPDX-License-Identifier: BSD-3-Clause
 #
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are met:
+# This software is distributed under the BSD 3-Clause "New" or "Revised" License,
+# the text of which is available at https://spdx.org/licenses/BSD-3-Clause.html
+# or see the "LICENSE" file for more details.
 #
-# 1. Redistributions of source code must retain the above copyright notice, this
-#    list of conditions and the following disclaimer.
+# Authors: Maximilien BAUMANN <maximilien.baumann@orange.com>
+# Software description: Project to allow adding an OpenWRT feed for OTBR
 #
-# 2. Redistributions in binary form must reproduce the above copyright notice,
-#    this list of conditions and the following disclaimer in the documentation
-#    and/or other materials provided with the distribution.
-#
-# 3. Neither the name of the copyright holder nor the names of its
-#    contributors may be used to endorse or promote products derived from
-#    this software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=openthread-br
@@ -40,7 +22,7 @@ PKG_SOURCE_VERSION:=98db630
 PKG_SOURCE_URL:=https://github.com/openthread/ot-br-posix.git
 PKG_MIRROR_HASH:=72ad1d42cc01f9c3384d5fd8a66312fb23f1df40f2fd3da232c55e1f0c7be41b
 
-PKG_BUILD_DEPENDS:=node/host protobuf/host
+PKG_BUILD_DEPENDS:=protobuf/host
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
