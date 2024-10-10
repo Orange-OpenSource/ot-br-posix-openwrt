@@ -1,0 +1,25 @@
+From 24720954053a2a2f340d790d2ecf422397470422 Mon Sep 17 00:00:00 2001
+From: Maximilien Baumann <maximilien.baumann@orange.com>
+Date: Fri, 11 Oct 2024 18:03:44 +0200
+Subject: [PATCH] Fix u_int16 typo in dbus
+
+---
+ src/dbus/common/types.hpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/dbus/common/types.hpp b/src/dbus/common/types.hpp
+index 14f7fc292e6..ee7d8a7e056 100644
+--- a/src/dbus/common/types.hpp
++++ b/src/dbus/common/types.hpp
+@@ -715,7 +715,7 @@ struct TrelInfo
+     };
+ 
+     bool               mEnabled;      ///< Whether TREL is enabled.
+-    u_int16_t          mNumTrelPeers; ///< The number of TREL peers.
++    uint16_t          mNumTrelPeers; ///< The number of TREL peers.
+     TrelPacketCounters mTrelCounters; ///< The TREL counters.
+ };
+ 
+-- 
+2.34.1
+
